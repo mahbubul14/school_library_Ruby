@@ -5,8 +5,8 @@ class Person
   attr_accessor :name, :age
   attr_reader :id, :rentals
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Random.rand(1...100)
+  def initialize(age, name = 'Unknown', parent_permission = 'true')
+    @id = Random.rand(1...1000)
     @name = name
     @parent_permission = parent_permission
     @age = age
@@ -26,9 +26,9 @@ class Person
     Rental.new(date, self, book)
   end
 
-  private :of_age?
-
   def validate_name
     @name = @corrector.correct_name(@name)
   end
+
+  private :of_age?
 end
